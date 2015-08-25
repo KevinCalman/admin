@@ -1,0 +1,5 @@
+# .gitignore: place in root of a Git repo to prevent some file from being included.
+
+# Idea project files
+.idea
+

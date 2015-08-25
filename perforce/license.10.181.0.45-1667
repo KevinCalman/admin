@@ -1,0 +1,35 @@
+# Perforce License File.
+#
+# This product is subject to U.S. export control laws and regulations
+# including, but not limited to, the U.S. Export Administration
+# Regulations, the International Traffic in Arms Regulation requirements,
+# and all applicable end-use, end-user and destination restrictions.
+# Licensee shall not permit, directly or indirectly, use of any Perforce
+# technology in or by any U.S. embargoed country or otherwise in
+# violation of any U.S. export control laws and regulations.
+#
+# This file enables the Perforce Server to support multiple users and
+# workspaces.
+#
+# Install this file as 'license' (no extension) in the Perforce server
+# root directory, where the db.* files live, then stop and restart the 
+# server. Run 'p4 info' to verify the server can read the license.
+#
+# The order of entries in this file is not important, but the values
+# must be preserved literally.
+
+License:	BFFD3A73B5885A58AC6A598CD167BEAE
+
+Support-Expires:	1401778800	# 2014/06/03
+
+Customer:	Dell Inc
+
+IPaddress:	10.181.0.45:1667
+
+Users:	70
+
+# Users:	 0
+# DuplicateUsers:	70
+# DuplicateSource:	
+# 	IPaddress: 10.181.0.10:1666	Users: 70	Name: Dell/direct global services lab-message one/Commercial
+# This license works with 97.2 or later servers.

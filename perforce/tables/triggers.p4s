@@ -1,0 +1,65 @@
+# $Author$ $Change$ $DateTime$ $File$ $Revision$
+# Perforce Submit and Form Validating Trigger Specifications.
+########
+#		General Notes:
+# These comments are stripped out in the version of this table that the
+# server produces, so this file is checked in and all changes to the
+# server table must be made through manipulation of this file.
+# This file is read into the server by:
+# 	"p4 print -q //depot/admin/tables/triggers.p4s | p4 triggers -i"
+########
+#
+#  Triggers:	a list of triggers; one per line.  Each line has four
+#		elements:
+#
+#  		Name:   The name of the trigger.
+#
+#  		Type:   'archive'	  external archive access triggers
+#			'auth-check'      check authentication trigger
+#			'auth-set'        set authentication trigger
+#			'change-submit'   pre-submit triggers
+#			'change-content'  modify content submit triggers
+#			'change-commit'   post-submit triggers
+#			'fix-add'         pre-add fix triggers
+#			'fix-delete'      pre-delete fix triggers
+#			'form-in'         modify form in triggers
+#			'form-out'        modify form out triggers
+#			'form-save'       pre-save form triggers
+#			'form-commit'     post-save form triggers
+#			'form-delete'     pre-delete form triggers
+#			'service-check'   check auth trigger (service users)
+#			'shelve-submit'   pre-shelve triggers
+#			'shelve-commit'   post-shelve triggers
+#			'shelve-delete'   pre-delete shelve triggers
+#
+#  		Path:   For change-* or shelve-*triggers, a pattern to
+#			match files in the changelist.
+#
+#			For form-* triggers, the type of form: e.g. 'branch'
+#			'client', etc.
+#
+#			For fix-* triggers use 'fix'.
+#
+#			For auth-* triggers use 'auth'.
+#
+#			For archive triggers, a file pattern to match the
+#			file name being accessed.
+#
+#  		Command: The OS command to run for validation.  If the
+#			 command contains spaces, the whole command must
+#			 be quoted.  See 'p4 help triggers' for a list of
+#			 variables that can be expanded in the command
+#			 string.
+#
+#  For example,
+#
+#	Triggers:
+#		example change-submit //depot/... "cmd %changelist%"
+#
+# See 'p4 help triggers' for more information about triggers.
+
+Triggers:
+	# Windows-based server CygWin bash script invocations
+	p4t-change-submit change-submit //depot/rel/... "C:\cygwin\bin\bash.exe -c './admin/bin/p4t-change-submit.sh -q -c %change% -u %user% -jr -k \'^(m1-release-plugin:|\[maven-release-plugin\])\''"
+	p4t-change-submit change-submit //depot/main/... "C:\cygwin\bin\bash.exe -c './admin/bin/p4t-change-submit.sh -q -c %change% -u %user% -jr -k \'^(m1-release-plugin:|\[maven-release-plugin\])\''"
+
